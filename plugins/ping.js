@@ -12,8 +12,8 @@ let {
  const Config = require("../config");
  const cheerio = require("cheerio");
  smd({
-   cmdname: "chkserver",
-   alias: ["server", "botstats"],
+   cmdname: "ping",
+   alias: ["chk", "chkserver"],
    type: "info", 
    react:"📡", 
    info: "get bot server stats"
