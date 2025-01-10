@@ -28,7 +28,7 @@ const long = String.fromCharCode(8206);
 
 const readmore = long.repeat(4001);
 
-const xcel = require("../lib/plugins");
+const cmd = require("../lib/plugins");
 
 const { exec } = require("child_process");
 
