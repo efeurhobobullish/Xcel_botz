@@ -17,6 +17,8 @@ let {
   formatp,
 
   prefix,
+  
+  cmd, 
 
  
 
@@ -28,13 +30,13 @@ const long = String.fromCharCode(8206);
 
 const readmore = long.repeat(4001);
 
-const cmd = require("../lib/plugins");
+const xcel = require("../lib/plugins");
 
 const { exec } = require("child_process");
 
 const translatte = require("translatte");
 
-cmd(
+smd(
 
   {
 
