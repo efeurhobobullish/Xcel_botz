@@ -18,11 +18,9 @@ let {
 
   prefix,
   
-  cmd, 
+  smd, 
 
- 
-
-  commands,
+commands,
 
 } = require("../lib");
 
