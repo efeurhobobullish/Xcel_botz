@@ -1,4 +1,4 @@
- const os = require("os");
+const os = require("os");
 const Config = require("../config");
 let { fancytext, tiny, runtime, formatp, prefix } = require("../lib");
 const long = String.fromCharCode(8206);
@@ -97,7 +97,7 @@ xcel.smd(
 
       commands.map((command) => {
         if (command.dontAddCommandList === false && command.pattern !== undefined) {
-          menuText += `${menuThemeCommandPrefix} ${fancytext(command.pattern, 1)}\n`;
+          menuText += `${menuThemeCommandPrefix} ${fancytext(command.pattern, 1)}\n\n`;
         }
       });
       menuText += Config.caption;
