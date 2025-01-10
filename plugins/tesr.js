@@ -1,3 +1,4 @@
+
 const os = require("os");
 const Config = require("../config");
 let { fancytext, tiny, runtime, formatp, prefix } = require("../lib");
@@ -5,18 +6,18 @@ const long = String.fromCharCode(8206);
 const readmore = long.repeat(4001);
 const xcel = require("../lib/plugins");
 const trend_usage = (() => {
-    const trendNumber = ((min, max) => {
-      const random = () => Math.random();
-      const floor = (x) => Math.floor(x);
-      const multiply = (a, b) => a * b;
-      const add = (a, b) => a + b;
-      const subtract = (a, b) => a - b;
-      const randomValue = multiply(random(), subtract(max, min + 1));
-      const result = add(floor(randomValue), min);
-      return result;
-    })(1, 99);
-    return trendNumber;
-  })();
+  const trendNumber = ((min, max) => {
+    const random = () => Math.random();
+    const floor = (x) => Math.floor(x);
+    const multiply = (a, b) => a * b;
+    const add = (a, b) => a + b;
+    const subtract = (a, b) => a - b;
+    const randomValue = multiply(random(), subtract(max, min + 1));
+    const result = add(floor(randomValue), min);
+    return result;
+  })(1, 99);
+  return trendNumber;
+})();
 
 const database_info = (() => {
   const dbNumber = ((min, max) => {
@@ -51,9 +52,6 @@ xcel.smd(
         );
         if (foundCommand) {
           commandDetails.push("*🔉Command:* " + foundCommand.pattern);
-          if (foundCommand.category) {
-            commandDetails.push("*💁Category:* " + foundCommand.category);
-          }
           if (foundCommand.alias && foundCommand.alias[0]) {
             commandDetails.push("*💁Alias:* " + foundCommand.alias.join(", "));
           }
@@ -79,33 +77,10 @@ xcel.smd(
         }
       }
 
-      let menuThemeHeader;
-      let menuThemeFooter;
-      let menuThemeCategoryHeader;
-      let menuThemeCategoryFooter;
-      let menuThemeCommandPrefix;
-      let menuThemeCommandFooter;
-
-      menuThemeHeader = "" + Config.botname + "";
-      menuThemeCommandPrefix = "";
-      menuThemeFooter = "";
-      menuThemeCategoryHeader = "";
-      menuThemeCategoryFooter = "";
-      menuThemeCommandPrefix = "";
-      menuThemeCommandFooter = "";
-
-      const categorizedCommands = {};
-      commands.map(async (command, index) => {
-        if (
-          command.dontAddCommandList === false &&
-          command.pattern !== undefined
-        ) {
-          if (!categorizedCommands[command.category]) {
-            categorizedCommands[command.category] = [];
-          }
-          categorizedCommands[command.category].push(command.pattern);
-        }
-      });
+      let menuThemeHeader = "" + Config.botname + "";
+      let menuThemeCommandPrefix = "";
+      let menuThemeFooter = "";
+      let menuThemeCommandFooter = "";
 
       const currentTime = message.time;
       const currentDate = message.date;
@@ -123,22 +98,11 @@ xcel.smd(
   ＢＯＴ-Ｘ ©２４
   \n${readmore}\n`;
 
-      for (const category in categorizedCommands) {
-        menuText += `${menuThemeCategoryHeader} *${tiny(category)}* ${menuThemeCategoryFooter}\n`;
-        if (input.toLowerCase() === category.toLowerCase()) {
-          menuText = `${menuThemeCategoryHeader} *${tiny(category)}* ${menuThemeCategoryFooter}\n`;
-          for (const command of categorizedCommands[category]) {
-            menuText += `${menuThemeCommandPrefix} ${fancytext(command, 1)}\n`;
-          }
-          menuText += `${menuThemeCommandFooter}\n`;
-          break;
-        } else {
-          for (const command of categorizedCommands[category]) {
-            menuText += `${menuThemeCommandPrefix} ${fancytext(command, 1)}\n`;
-          }
-          menuText += `${menuThemeCommandFooter}\n`;
+      commands.map((command) => {
+        if (command.dontAddCommandList === false && command.pattern !== undefined) {
+          menuText += `${menuThemeCommandPrefix} ${fancytext(command.pattern, 1)}\n`;
         }
-      }
+      });
       menuText += Config.caption;
 
       const messageOptions = {
@@ -149,5 +113,5 @@ xcel.smd(
     } catch (error) {
       await message.error(error + "\nCommand: ball", error);
     }
-  },
+  }
 );
