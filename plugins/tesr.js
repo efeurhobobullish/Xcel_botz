@@ -91,8 +91,6 @@ xcel.smd(
   ${menuThemeCommandPrefix} *ᴛɪᴍᴇ:* ${currentTime}
   ${menuThemeCommandPrefix} *ᴅᴀᴛᴇ:* ${currentDate}
   ${menuThemeCommandPrefix} *ᴄᴏᴍᴍᴀɴᴅs:* ${commands.length}
-  ${menuThemeCommandPrefix} *ᴜsᴀɢᴇ ᴛʀᴇɴᴅ:* ${trend_usage}
-  ${menuThemeCommandPrefix} *ᴅᴀᴛᴀʙᴀsᴇ:* ${database_info}
   ${menuThemeFooter}\n                         
   ＳＩＭＰＬＥ ＵＳＥＲ ＢＯＴ
   \n${readmore}\n`;
