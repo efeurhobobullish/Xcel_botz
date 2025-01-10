@@ -18,7 +18,7 @@ let {
 
   prefix,
 
-  cmd,
+ 
 
   commands,
 
