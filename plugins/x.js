@@ -53,23 +53,23 @@ xcel.cmd(
 
       const { commands } = require("../lib");
 
-      let listMessage = `\n  
-
-╭━━〘 * ${Config.botname} * 〙    
-
-┃ 🎗 Prefix: ${Config.HANDLERS}
-
-┃ 🎗 Owner: ${Config.ownername}
-
-┃ 🎗 Commands: ${commands.length}
-
-┃ 🎗 Uptime: ${runtime(process.uptime())}
-
-┃ 🎗 Mem: ${formatp(os.totalmem() - os.freemem())}
-
-╰━━━━━━━━━━━━━━⊷\n
+      let listMessage = 
 
 
+
+➮ʀᴜɴᴛɪᴍᴇ - ${runtime(process.uptime())} 
+
+➮ᴅᴀᴛᴇ - ${message.date} 
+
+➮ɴᴏᴡ ᴛɪᴍᴇ - ${message.time} 
+      
+➮Oᴡɴᴇʀ - ${Config.ownername} 
+
+➮Nᴜᴍ - ${owner.split(",")[0]} 
+
+➮Mᴇᴍᴏ - ${formatp(os.totalmem() - os.freemem())} 
+
+      \n *xᴄᴇʟ_ʙᴏᴛ*\n\n ${readmore} 
 
 
 
