@@ -52,7 +52,7 @@ module.exports = {
   caption: process.env.CAPTION || "`xᴄᴇʟ_ʙᴏᴛ ™`",
   author: process.env.PACK_AUTHER || "Xcelsama",
   packname: process.env.PACK_NAME || "xᴄᴇʟ_ʙᴏᴛ",
-  botname: process.env.BOT_NAME || "xᴄᴇʟ_ʙᴏᴛ",
+  botname: process.env.BOT_NAME || "Xcel_bot",
   ownername: process.env.OWNER_NAME || "Xcelsama",
   errorChat: process.env.ERROR_CHAT || "",
   KOYEB_API: process.env.KOYEB_API || "false",
