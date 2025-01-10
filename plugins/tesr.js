@@ -1,5 +1,4 @@
-
-const os = require("os");
+ const os = require("os");
 const Config = require("../config");
 let { fancytext, tiny, runtime, formatp, prefix } = require("../lib");
 const long = String.fromCharCode(8206);
@@ -78,7 +77,7 @@ xcel.smd(
       }
 
       let menuThemeHeader = "" + Config.botname + "";
-      let menuThemeCommandPrefix = "";
+      let menuThemeCommandPrefix = "➮ ";
       let menuThemeFooter = "";
       let menuThemeCommandFooter = "";
 
