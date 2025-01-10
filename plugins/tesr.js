@@ -94,7 +94,7 @@ xcel.smd(
   ${menuThemeCommandPrefix} *ᴜsᴀɢᴇ ᴛʀᴇɴᴅ:* ${trend_usage}
   ${menuThemeCommandPrefix} *ᴅᴀᴛᴀʙᴀsᴇ:* ${database_info}
   ${menuThemeFooter}\n                         
-  ＢＯＴ-Ｘ ©２４
+  ＳＩＭＰＬＥ ＵＳＥＲ ＢＯＴ
   \n${readmore}\n`;
 
       commands.map((command) => {
