@@ -56,3 +56,46 @@ let {
      await _0xdfc3ca.error(_0x13d03e + "\n\ncommand : ping", _0x13d03e, false);
    }
  });
+smd(
+
+  {
+
+    pattern: "xping",
+
+    desc: "To check ping",
+
+    category: "bot",
+
+    filename: __filename,
+
+  },
+
+  async (message) => {
+
+    var startTime = new Date().getTime();
+
+    const { key } = await message.reply("*Testing Ping!!!*");
+
+    var endTime = new Date().getTime();
+
+    return await message.send(
+
+      `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`,
+
+      {
+
+        edit: key,
+
+      },
+
+      "",
+
+      message
+
+    );
+
+  }
+
+);
+
+// Command: Uptime
