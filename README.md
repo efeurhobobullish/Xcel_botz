@@ -1,6 +1,6 @@
 ＳＩＭＰＬＥ ＵＳＥＲ ＢＯＴ
 
- ## ＴＯ-ＤＯ : ＧＥＴ SESSION_ＩＤ
+ ## ＴＯ-ＤＯ : ＧＥＴ SESSION_ID
 
 <a href='https://bot-x-q7ef.onrender.com/pair' target="_blank"><img alt='Pair repl' src='https://img.shields.io/badge/-Pair_Code-black?style=for-the-badge&logo=replit&logoColor=white'/></a>
 
