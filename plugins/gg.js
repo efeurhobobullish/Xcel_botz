@@ -6,8 +6,8 @@ const axios = require("axios");
 
 smd(
   {
-    pattern: "gg.",
-    category: "",
+    pattern: "gg",
+    category: "internet",
     desc: "Fetches information using Google AI.",
     use: "<query>",
     filename: __filename,
