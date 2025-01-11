@@ -12,7 +12,7 @@ let {
  const Config = require("../config");
  const cheerio = require("cheerio");
  smd({
-   cmdname: "ping",
+   cmdname: "chkbot",
    alias: ["chk", "chkserver"],
    type: "info", 
    react:"📡", 
@@ -60,7 +60,7 @@ smd(
 
   {
 
-    pattern: "xping",
+    pattern: "ping",
 
     desc: "To check ping",
 
