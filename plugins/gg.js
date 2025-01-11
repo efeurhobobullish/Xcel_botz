@@ -6,8 +6,8 @@ const axios = require("axios");
 
 smd(
   {
-    pattern: "gg",
-    category: "internet",
+    pattern: "bing",
+    category: "ai",
     desc: "Fetches information using Google AI.",
     use: "<query>",
     filename: __filename,
@@ -27,8 +27,14 @@ smd(
         return await message.reply(`*_Something went wrong. Please try again later._*`);
       }
 
-      let responseText = `*🌱 Google  Response for "${text}":*\n\n`;
-      responseText += result.data.data.data; // Adjust based on actual API response structure
+      let responseText = `* Google  Response for "${text}":*\n\n`;
+      
+      result.data.result.forEach((item) => {
+        responseText += `*Title:* ${item.title}\n`;
+        responseText += `*Link:* ${item.link}\n`;
+        responseText += `*Description:* ${item.description}\n\n`;
+      });
+
       responseText += `\n\n${Config.caption}`;
 
       message.bot.sendUi(
@@ -40,7 +46,7 @@ smd(
       );
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: gg`,
+        `${e}\n\n command: bing`,
         e,
         `*_An error occurred while processing your request._*`
       );
