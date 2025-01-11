@@ -109,7 +109,7 @@ smd({
     const _0x4cf39c = _0x2b9570?.urls?.regular || false;
     if (_0x4cf39c) {
       await _0x5c07ae.sendUi(_0x5c07ae.jid, {
-        caption: "*`HERE IS YOUR WALLPAPER`*"
+        caption: "*HERE IS YOUR WALLPAPER*"
       }, {
         quoted: _0x5c07ae
       }, "image", _0x4cf39c);
