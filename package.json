@@ -24,7 +24,8 @@
     "canvas": "^2.11.2",
     "cheerio": "^1.0.0-rc.10",
     "child_process": "^1.0.2",
-    "crypto-js": "latest", 
+    "crypto-js": "latest",
+    "discord-mongoose-economy": "^1.2.0",
     "discord-xp": "^1.1.16",
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
@@ -33,6 +34,7 @@
     "fluent-ffmpeg": "^2.1.2",
     "form-data": "^4.0.0",
     "fs-extra": "^10.1.0",
+    "google-it": "^1.6.4",
     "sequelize": "^6.23.0",
     "google-tts-api": "^2.0.2",
     "heroku-client": "3.1.0",
@@ -57,6 +59,9 @@
     "translatte": "^3.0.1",
     "util": "^0.12.4",
     "wa-sticker-formatter": "^4.3.2",
+    "youtubei.js": "^7.0.0",
+    "ytdl-core": "github:franceking1/flash-dls",
+    "ytdl-secktor": "^0.0.1-development"
   },
   "directories": {
     "lib": "lib",
