@@ -100,7 +100,7 @@ smd({
 
 smd({
   cmdname: "wallpaper",
-  info: "To get Random Pics",
+  info: "To get Random wallpaper Pics",
   type: "internet",
   filename: __filename
 }, async _0x5c07ae => {
@@ -109,7 +109,7 @@ smd({
     const _0x4cf39c = _0x2b9570?.urls?.regular || false;
     if (_0x4cf39c) {
       await _0x5c07ae.sendUi(_0x5c07ae.jid, {
-        caption: "*---Random Wallpapers Here---*"
+        caption: "*`HERE IS YOUR WALLPAPER`*"
       }, {
         quoted: _0x5c07ae
       }, "image", _0x4cf39c);
