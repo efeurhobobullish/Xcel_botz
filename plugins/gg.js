@@ -6,8 +6,8 @@ const axios = require("axios");
 
 smd(
   {
-    pattern: "bing",
-    category: "ai",
+    pattern: "gg",
+    category: "internet",
     desc: "Fetches information using Google AI.",
     use: "<query>",
     filename: __filename,
@@ -46,7 +46,7 @@ smd(
       );
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: bing`,
+        `${e}\n\n command: gg`,
         e,
         `*_An error occurred while processing your request._*`
       );
