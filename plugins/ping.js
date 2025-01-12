@@ -60,6 +60,7 @@ let {
 
 
 
+
 smd(
   {
     pattern: "ping",
@@ -70,6 +71,7 @@ smd(
   async (message) => {
     try {
       var startTime = new Date().getTime();
+      const { key } = await message.reply("*Pinging...*");
       var endTime = new Date().getTime();
 
       let responseText = `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
@@ -91,4 +93,3 @@ smd(
     }
   }
 );
- 
