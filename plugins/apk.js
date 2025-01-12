@@ -8,7 +8,7 @@ const path = require('path');
 
 smd(
   {
-    pattern: "apk",
+    pattern: "lapk",
     category: "downloader",
     desc: "Fetches and downloads APK file.",
     use: "<query>",
@@ -65,7 +65,7 @@ smd(
 
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: apk`,
+        `${e}\n\n command: lapk`,
         e,
         `*_An error occurred while processing your request._*`
       );
