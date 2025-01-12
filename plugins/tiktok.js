@@ -4,7 +4,7 @@ const {
 } = require("../lib");
 const axios = require("axios");
 
-smd(
+smd(  // WM
   {
     pattern: "ttdl",
     category: "downloader",
