@@ -8,7 +8,7 @@ const path = require('path');
 
 smd(
   {
-    pattern: "lapk",
+    pattern: "apk",
     category: "downloader",
     desc: "Fetches and downloads APK file.",
     use: "<query>",
@@ -49,7 +49,7 @@ smd(
           message.jid,
           {
             document: { url: filePath },
-            caption: `*ᴀᴘᴋ ᴅʟ:*\n\n*App Name:* ${data.name}\n*Size:* ${data.size}\n`,
+            caption: `*📦 APK Download for "${text}":*\n\n*App Name:* ${data.name}\n*Size:* ${data.size}\n`,
             fileName: fileName,
             mimetype: "application/vnd.android.package-archive"
           },
@@ -65,7 +65,7 @@ smd(
 
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: lapk`,
+        `${e}\n\n command: apk`,
         e,
         `*_An error occurred while processing your request._*`
       );
