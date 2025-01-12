@@ -36,7 +36,7 @@ smd(
           caption: `*Facebook Video Info:*\n\n` +
                    `*Title:* ${data.title}\n` +
                    `*Description:* ${data.desc}\n` +
-                   `*Thumbnail:* ${data.thumb}\n`,
+                   
           fileName: "facebook_video.mp4",
           mimetype: "video/mp4"
         },
