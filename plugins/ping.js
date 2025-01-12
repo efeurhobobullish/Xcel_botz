@@ -70,16 +70,8 @@ smd(
       const { key } = await message.reply("*Testing Ping!!!*");
       var endTime = new Date().getTime();
 
-      let responseText = "";
-      responseText += `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
+      let responseText = `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
       responseText += `\n\n${Config.caption}`;
-
-      await message.send(
-        `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`,
-        { edit: key },
-        "",
-        message
-      );
 
       message.bot.sendUi(
         message.jid,
