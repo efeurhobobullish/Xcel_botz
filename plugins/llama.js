@@ -27,8 +27,8 @@ smd(
         return await message.reply(`*_Something went wrong. Please try again later._*`);
       }
 
-      let responseText = `* Response for "${text}":*\n\n`;
-      responseText += result.data.data.data; // Adjust based on actual API response structure
+      let responseText = `*Response for "${text}":*\n\n`;
+      responseText += result.data.result;
       responseText += `\n\n${Config.caption}`;
 
       message.bot.sendUi(
