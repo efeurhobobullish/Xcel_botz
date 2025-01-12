@@ -27,7 +27,7 @@ smd(
         return await message.reply(`*_Something went wrong. Please try again later._*`);
       }
 
-      let responseText = `* Google  Response for "${text}":*\n\n`;
+      let responseText = `* Bing Response for "${text}":*\n\n`;
 
       result.data.result.forEach((item) => {
         responseText += `*Title:* ${item.title}\n`;
