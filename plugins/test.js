@@ -29,22 +29,21 @@ smd(
 
       const data = result.data.result;
 
-      let responseText = `*📹 TikTok Video Info for "${text}":*\n\n`;
-      responseText += `*Title:* ${data.title}\n`;
-      responseText += `*Region:* ${data.region}\n`;
-      responseText += `*Duration:* ${data.duration} seconds\n`;
-      responseText += `*Author:*\n  - *Username:* ${data.author.username}\n  - *Nickname:* ${data.author.nickname}\n  - *Avatar:* ${data.author.avatar}\n`;
-      responseText += `*Metrics:*\n  - *Play Count:* ${data.metrics.play_count}\n  - *Comment Count:* ${data.metrics.comment_count}\n  - *Share Count:* ${data.metrics.share_count}\n  - *Download Count:* ${data.metrics.download_count}\n`;
-      responseText += `*Thumbnail:* ${data.thumbnail}\n`;
-      responseText += `*Download Link:* ${data.url}\n`;
-      responseText += `\n\n${Config.caption}`;
-
-      message.bot.sendUi(
+      await message.bot.sendMessage(
         message.jid,
-        { caption: responseText },
-        { quoted: message },
-        "text",
-        "true"
+        {
+          video: { url: data.url },
+          caption: `*📹 TikTok Video Info for "${text}":*\n\n` +
+                   `*Title:* ${data.title}\n` +
+                   `*Region:* ${data.region}\n` +
+                   `*Duration:* ${data.duration} seconds\n` +
+                   `*Author:*\n  - *Username:* ${data.author.username}\n  - *Nickname:* ${data.author.nickname}\n  - *Avatar:* ${data.author.avatar}\n` +
+                   `*Metrics:*\n  - *Play Count:* ${data.metrics.play_count}\n  - *Comment Count:* ${data.metrics.comment_count}\n  - *Share Count:* ${data.metrics.share_count}\n  - *Download Count:* ${data.metrics.download_count}\n` +
+                   `*Thumbnail:* ${data.thumbnail}\n`,
+          fileName: "tiktok_video.mp4",
+          mimetype: "video/mp4"
+        },
+        { quoted: message }
       );
     } catch (e) {
       return await message.error(
