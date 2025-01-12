@@ -53,56 +53,13 @@ let {
      respon = ("\nResponse Speed " + _0x3db049.toFixed(4) + " _Second_ \n " + (oldd - neww) + " _miliseconds_\n\nRuntime : " + runtime(process.uptime()) + "\n\n💻 Info Server\nRAM: " + formatp(os.totalmem() - os.freemem()) + " / " + formatp(os.totalmem()) + "\n\n_NodeJS Memory Usaage_\n" + Object.keys(_0x37ca41).map((_0x19d575, _0x3942d9, _0x3fa08c) => _0x19d575.padEnd(Math.max(..._0x3fa08c.map(_0x6548cb => _0x6548cb.length)), " ") + ": " + formatp(_0x37ca41[_0x19d575])).join("\n") + "\n\n" + (_0x4a72de[0] ? "_Total CPU Usage_\n" + _0x4a72de[0].model.trim() + " (" + _0x410388.speed + " MHZ)\n" + Object.keys(_0x410388.times).map(_0xffc60c => "- *" + (_0xffc60c + "*").padEnd(6) + ": " + (_0x410388.times[_0xffc60c] * 100 / _0x410388.total).toFixed(2) + "%").join("\n") + " " : "") + "\n\n ").trim();
      _0xdfc3ca.reply(respon);
    } catch (_0x13d03e) {
-     await _0xdfc3ca.error(_0x13d03e + "\n\ncommand : ping", _0x13d03e, false);
+     await _0xdfc3ca.error(_0x13d03e + "\n\ncommand : chkbot", _0x13d03e, false);
    }
  });
+
 smd(
-
   {
-
     pattern: "ping",
-
-    desc: "To check ping",
-
-    category: "bot",
-
-    filename: __filename,
-
-  },
-
-  async (message) => {
-
-    var startTime = new Date().getTime();
-
-    const { key } = await message.reply("*Testing Ping!!!*");
-
-    var endTime = new Date().getTime();
-
-    return await message.send(
-
-      `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`,
-
-      {
-
-        edit: key,
-
-      },
-
-      "",
-
-      message
-
-    );
-
-  }
-
-);
-
-// Command: Uptime
-
-smd(
-  {
-    pattern: "tping",
     desc: "To check ping",
     category: "bot",
     filename: __filename,
@@ -113,7 +70,7 @@ smd(
       const { key } = await message.reply("*Testing Ping!!!*");
       var endTime = new Date().getTime();
 
-      let responseText = "*Ping Test Result*\n\n";
+      let responseText = "";
       responseText += `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
       responseText += `\n\n${Config.caption}`;
 
@@ -133,7 +90,7 @@ smd(
       );
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: tping`,
+        `${e}\n\n command: ping`,
         e,
         `*_An error occurred while processing your request._*`
       );
