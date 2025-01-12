@@ -58,6 +58,8 @@ let {
  });
 
 
+
+
 smd(
   {
     pattern: "ping",
@@ -70,7 +72,7 @@ smd(
       var startTime = new Date().getTime();
       var endTime = new Date().getTime();
 
-      let responseText = `*Testing Ping!!!*\n\n*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
+      let responseText = `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
       responseText += `\n\n${Config.caption}`;
 
       message.bot.sendUi(
@@ -89,3 +91,4 @@ smd(
     }
   }
 );
+ 
