@@ -6,21 +6,21 @@ const axios = require("axios");
 
 smd(
   {
-    pattern: "fbdl",
-    category: "downloader",
-    desc: "Fetches Facebook video download link.",
-    use: "<url>",
+    pattern: "lyrics",
+    category: "search",
+    desc: "Fetches song lyrics.",
+    use: "<query>",
     filename: __filename,
   },
   async (message, text) => {
     try {
       if (!text) {
         return message.reply(
-          `*_Please provide a Facebook video URL, ${message.isCreator ? "Buddy" : "Idiot"}!!_*`
+          `*_Please provide a song title or artist name, ${message.isCreator ? "Buddy" : "Idiot"}!!_*`
         );
       }
 
-      const apiUrl = `https://api.nexoracle.com/downloader/facebook?apikey=MepwBcqIM0jYN0okD&url=${encodeURIComponent(text)}`;
+      const apiUrl = `https://api.nexoracle.com/search/lyrics?apikey=MepwBcqIM0jYN0okD&q=${encodeURIComponent(text)}`;
       const result = await axios.get(apiUrl);
 
       if (!result.data) {
@@ -29,21 +29,24 @@ smd(
 
       const data = result.data.result;
 
+      let responseText = `*🎶 Lyrics for "${text}":*\n\n`;
+      responseText += `*Title:* ${data.title}\n`;
+      responseText += `*Artist:* ${data.artist}\n`;
+      responseText += `*Lyrics:* ${data.lyrics}\n`;
+      responseText += `\n\n${Config.caption}`;
+
       await message.bot.sendMessage(
         message.jid,
         {
-          video: { url: data.sd },
-          caption: `*Facebook Video Info:*\n\n` +
-                   `*Title:* ${data.title}\n` +
-                   `*Description:* ${data.desc}\n` ,                    
-          fileName: "facebook_video.mp4",
-          mimetype: "video/mp4"
+          image: { url: data.image },
+          caption: responseText
         },
         { quoted: message }
       );
+
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: fbdl`,
+        `${e}\n\n command: lyrics`,
         e,
         `*_An error occurred while processing your request._*`
       );
