@@ -1,15 +1,16 @@
-/*
 const {
   smd,
   Config,
 } = require("../lib");
 const axios = require("axios");
+const fs = require('fs');
+const path = require('path');
 
 smd(
   {
     pattern: "apk",
     category: "downloader",
-    desc: "Fetches APK download link.",
+    desc: "Fetches and downloads APK file.",
     use: "<query>",
     filename: __filename,
   },
@@ -29,23 +30,39 @@ smd(
       }
 
       const data = result.data.result;
+      const apkUrl = data.dllink;
+      const fileName = `${data.name}.apk`;
+      const filePath = path.join(__dirname, fileName);
 
-      let responseText = `*📦 APK Download Link for "${text}":*\n\n`;
-      responseText += `*App Name:* ${data.name}\n`;
-      responseText += `*Last Updated:* ${data.lastup}\n`;
-      responseText += `*Package Name:* ${data.package}\n`;
-      responseText += `*Size:* ${data.size}\n`;
-      responseText += `*Icon:* ${data.icon}\n`;
-      responseText += `*Download Link:* ${data.dllink}\n`;
-      responseText += `\n\n${Config.caption}`;
+      const response = await axios({
+        url: apkUrl,
+        method: 'GET',
+        responseType: 'stream'
+      });
 
-      message.bot.sendUi(
-        message.jid,
-        { caption: responseText },
-        { quoted: message },
-        "text",
-        "true"
-      );
+      const writer = fs.createWriteStream(filePath);
+
+      response.data.pipe(writer);
+
+      writer.on('finish', async () => {
+        await message.bot.sendMessage(
+          message.jid,
+          {
+            document: { url: filePath },
+            caption: `*ᴀᴘᴋ ᴅʟ":*\n\n*App Name:* ${data.name}\n*Size:* ${data.size}\n`,
+            fileName: fileName,
+            mimetype: "application/vnd.android.package-archive"
+          },
+          { quoted: message }
+        );
+
+        fs.unlinkSync(filePath); // Clean up the file after sending
+      });
+
+      writer.on('error', (err) => {
+        throw err;
+      });
+
     } catch (e) {
       return await message.error(
         `${e}\n\n command: apk`,
@@ -55,4 +72,3 @@ smd(
     }
   }
 );
-*/
