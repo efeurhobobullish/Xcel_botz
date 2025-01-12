@@ -32,8 +32,11 @@ smd(
       await message.bot.sendMessage(
         message.jid,
         {
-          video: { url: data.url },
-          caption: `Facebook Video\n*Title:* ${data.title}\n`,
+          video: { url: data.sd },
+          caption: `*Facebook Video Info:*\n\n` +
+                   `*Title:* ${data.title}\n` +
+                   `*Description:* ${data.desc}\n` +
+                   `*Thumbnail:* ${data.thumb}\n`,
           fileName: "facebook_video.mp4",
           mimetype: "video/mp4"
         },
