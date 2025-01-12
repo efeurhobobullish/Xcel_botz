@@ -1,3 +1,4 @@
+
 const {
   smd,
   Config,
@@ -33,11 +34,13 @@ smd(
         message.jid,
         {
           video: { url: data.url },
-          caption: `xᴄᴇʟ_ʙᴏᴛ` +
+          caption: `*📹 TikTok Video Info for "${text}":*\n\n` +
                    `*Title:* ${data.title}\n` +
                    `*Region:* ${data.region}\n` +
                    `*Duration:* ${data.duration} seconds\n` +
                    `*Author:*\n  - *Username:* ${data.author.username}\n  - *Nickname:* ${data.author.nickname}\n  - *Avatar:* ${data.author.avatar}\n` +
+                   `*Metrics:*\n  - *Play Count:* ${data.metrics.play_count}\n  - *Comment Count:* ${data.metrics.comment_count}\n  - *Share Count:* ${data.metrics.share_count}\n  - *Download Count:* ${data.metrics.download_count}\n` +
+                   `*Thumbnail:* ${data.thumbnail}\n`,
           fileName: "tiktok_video.mp4",
           mimetype: "video/mp4"
         },
