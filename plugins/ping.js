@@ -57,6 +57,7 @@ let {
    }
  });
 
+
 smd(
   {
     pattern: "ping",
@@ -67,10 +68,9 @@ smd(
   async (message) => {
     try {
       var startTime = new Date().getTime();
-      const { key } = await message.reply("*Testing Ping!!!*");
       var endTime = new Date().getTime();
 
-      let responseText = `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
+      let responseText = `*Testing Ping!!!*\n\n*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
       responseText += `\n\n${Config.caption}`;
 
       message.bot.sendUi(
