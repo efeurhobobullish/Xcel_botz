@@ -99,3 +99,44 @@ smd(
 );
 
 // Command: Uptime
+
+smd(
+  {
+    pattern: "tping",
+    desc: "To check ping",
+    category: "bot",
+    filename: __filename,
+  },
+  async (message) => {
+    try {
+      var startTime = new Date().getTime();
+      const { key } = await message.reply("*Testing Ping!!!*");
+      var endTime = new Date().getTime();
+
+      let responseText = "*Ping Test Result*\n\n";
+      responseText += `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`;
+      responseText += `\n\n${Config.caption}`;
+
+      await message.send(
+        `*ᴘᴏɴɢ*\n *${endTime - startTime}ᴍs*`,
+        { edit: key },
+        "",
+        message
+      );
+
+      message.bot.sendUi(
+        message.jid,
+        { caption: responseText },
+        { quoted: message },
+        "text",
+        "true"
+      );
+    } catch (e) {
+      return await message.error(
+        `${e}\n\n command: tping`,
+        e,
+        `*_An error occurred while processing your request._*`
+      );
+    }
+  }
+);
