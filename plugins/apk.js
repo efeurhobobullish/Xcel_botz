@@ -49,7 +49,7 @@ smd(
           message.jid,
           {
             document: { url: filePath },
-            caption: `*ᴀᴘᴋ ᴅʟ":*\n\n*App Name:* ${data.name}\n*Size:* ${data.size}\n`,
+            caption: `*ᴀᴘᴋ ᴅʟ:*\n\n*App Name:* ${data.name}\n*Size:* ${data.size}\n`,
             fileName: fileName,
             mimetype: "application/vnd.android.package-archive"
           },
