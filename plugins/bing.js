@@ -6,9 +6,9 @@ const axios = require("axios");
 
 smd(
   {
-    pattern: "copilot",
-    category: "ai",
-    desc: "Fetches information using Bing AI,copilot",
+    pattern: "bing",
+    category: "internet",
+    desc: "Fetches information using Bing",
     use: "<query>",
     filename: __filename,
   },
@@ -20,15 +20,21 @@ smd(
         );
       }
 
-      const apiUrl = `https://nikka-api.us.kg/ai/bing?apiKey=nikka&q=${encodeURIComponent(text)}`;
+      const apiUrl = `https://api.nexoracle.com/search/bing-search?apikey=MepwBcqIM0jYN0okD&q=${encodeURIComponent(text)}`;
       const result = await axios.get(apiUrl);
 
       if (!result.data) {
         return await message.reply(`*_Something went wrong. Please try again later._*`);
       }
 
-      let responseText = `*🧠 Bing AI Response for "${text}":*\n\n`;
-      responseText += result.data.data.data; // Adjust based on actual API response structure
+      let responseText = `* Google  Response for "${text}":*\n\n`;
+
+      result.data.result.forEach((item) => {
+        responseText += `*Title:* ${item.title}\n`;
+        responseText += `*Link:* ${item.link}\n`;
+        responseText += `*Description:* ${item.description}\n\n`;
+      });
+
       responseText += `\n\n${Config.caption}`;
 
       message.bot.sendUi(
@@ -40,7 +46,7 @@ smd(
       );
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: copilot`,
+        `${e}\n\n command: bing`,
         e,
         `*_An error occurred while processing your request._*`
       );
