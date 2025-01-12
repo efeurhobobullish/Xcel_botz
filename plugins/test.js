@@ -3,24 +3,26 @@ const {
   Config,
 } = require("../lib");
 const axios = require("axios");
+const fs = require('fs');
+const path = require('path');
 
 smd(
   {
-    pattern: "ttdl",
+    pattern: "apk",
     category: "downloader",
-    desc: "Fetches TikTok video download link.",
-    use: "<url>",
+    desc: "Fetches and downloads APK file.",
+    use: "<query>",
     filename: __filename,
   },
   async (message, text) => {
     try {
       if (!text) {
         return message.reply(
-          `*_Please provide a TikTok video URL, ${message.isCreator ? "Buddy" : "Idiot"}!!_*`
+          `*_Please provide a query, ${message.isCreator ? "Buddy" : "Idiot"}!!_*`
         );
       }
 
-      const apiUrl = `https://api.nexoracle.com/downloader/tiktok-wm?apikey=MepwBcqIM0jYN0okD&url=${encodeURIComponent(text)}`;
+      const apiUrl = `https://api.nexoracle.com/downloader/apk?apikey=MepwBcqIM0jYN0okD&q=${encodeURIComponent(text)}`;
       const result = await axios.get(apiUrl);
 
       if (!result.data) {
@@ -28,21 +30,42 @@ smd(
       }
 
       const data = result.data.result;
+      const apkUrl = data.dllink;
+      const fileName = `${data.name}.apk`;
+      const filePath = path.join(__dirname, fileName);
 
-      await message.bot.sendMessage(
-        message.jid,
-        {
-          video: { url: data.url },
-          caption: `*📹 TikTok Video Title:*\n\n` +
-                   `*Title:* ${data.title}\n`,
-          fileName: "tiktok_video.mp4",
-          mimetype: "video/mp4"
-        },
-        { quoted: message }
-      );
+      const response = await axios({
+        url: apkUrl,
+        method: 'GET',
+        responseType: 'stream'
+      });
+
+      const writer = fs.createWriteStream(filePath);
+
+      response.data.pipe(writer);
+
+      writer.on('finish', async () => {
+        await message.bot.sendMessage(
+          message.jid,
+          {
+            document: { url: filePath },
+            caption: `*📦 APK Download for "${text}":*\n\n*App Name:* ${data.name}\n*Size:* ${data.size}\n`,
+            fileName: fileName,
+            mimetype: "application/vnd.android.package-archive"
+          },
+          { quoted: message }
+        );
+
+        fs.unlinkSync(filePath); // Clean up the file after sending
+      });
+
+      writer.on('error', (err) => {
+        throw err;
+      });
+
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: ttdl`,
+        `${e}\n\n command: apk`,
         e,
         `*_An error occurred while processing your request._*`
       );
