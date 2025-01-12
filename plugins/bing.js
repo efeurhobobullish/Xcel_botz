@@ -6,9 +6,9 @@ const axios = require("axios");
 
 smd(
   {
-    pattern: "bing",
+    pattern: "copilot",
     category: "ai",
-    desc: "Fetches information using Bing AI.",
+    desc: "Fetches information using Bing AI,copilot",
     use: "<query>",
     filename: __filename,
   },
@@ -40,7 +40,7 @@ smd(
       );
     } catch (e) {
       return await message.error(
-        `${e}\n\n command: bing`,
+        `${e}\n\n command: copilot`,
         e,
         `*_An error occurred while processing your request._*`
       );
