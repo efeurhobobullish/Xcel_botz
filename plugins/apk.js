@@ -1,4 +1,4 @@
-const {
+*/const {
   smd,
   Config,
 } = require("../lib");
@@ -54,3 +54,4 @@ smd(
     }
   }
 ); 
+/*
