@@ -2,7 +2,6 @@ const {
   smd,
   Config,
 } = require("../lib");
-const axios = require("axios");
 
 smd(
   {
@@ -13,22 +12,17 @@ smd(
     filename: __filename,
   },
   async (message, text) => {
-  if(!text) return await message.send("need a url");
-
-await message.bot.sendMessage(message.jid,{image:{url:`https://pup-git-main-excels-projects-0d9275b7.vercel.app/ss?url=${text}`}});
-});
-      const result = await axios.get(apiUrl);
-
-      if (!result.data) {
-        return await message.reply(`*_Something went wrong. Please try again later._*`);
+    try {
+      if (!text) {
+        return await message.send("need a url");
       }
 
-      const imageUrl = result.data.url;
+      const screenshotUrl = `https://pup-git-main-excels-projects-0d9275b7.vercel.app/ss?url=${encodeURIComponent(text)}`;
 
       await message.bot.sendMessage(
         message.jid,
         {
-          image: { url: imageUrl },
+          image: { url: screenshotUrl },
           caption: `Screenshot of the website: ${text}\n\n${Config.caption}`,
         },
         { quoted: message }
