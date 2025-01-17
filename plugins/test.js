@@ -13,14 +13,10 @@ smd(
     filename: __filename,
   },
   async (message, text) => {
-    try {
-      if (!text) {
-        return message.reply(
-          `*_Please provide a website URL, ${message.isCreator ? "Buddy" : "Idiot"}!!_*`
-        );
-      }
+  if(!text) return await message.send("need a url");
 
-      const apiUrl = `https://pup-git-main-excels-projects-0d9275b7.vercel.app/ss?url=${encodeURIComponent(text)}`;
+await message.bot.sendMessage(message.jid,{image:{url:`https://pup-git-main-excels-projects-0d9275b7.vercel.app/ss?url=${text}`}});
+});
       const result = await axios.get(apiUrl);
 
       if (!result.data) {
