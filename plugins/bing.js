@@ -6,8 +6,9 @@ const axios = require("axios");
 
 smd(
   {
-    pattern: "bing",
+    pattern: "search",
     category: "internet",
+    alias:"bing",
     desc: "Fetches information using Bing",
     use: "<query>",
     filename: __filename,
@@ -16,7 +17,7 @@ smd(
     try {
       if (!text) {
         return message.reply(
-          `*_Please provide a query, ${message.isCreator ? "Buddy" : "Idiot"}!!_*`
+          `*_Please what i should search, ${message.isCreator ? "Buddy" : "Idiot"}!!_*`
         );
       }
 
