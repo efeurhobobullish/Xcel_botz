@@ -20,7 +20,7 @@ smd(
         );
       }
 
-      const apiUrl = `https://api.nexoracle.com/ai/llama3?apikey=MepwBcqIM0jYN0okD&prompt=${encodeURIComponent(text)}`;
+      const apiUrl = `https://nikka-api.us.kg/ai/gemini?apiKey=haki&q=${encodeURIComponent(text)}`;
       const result = await axios.get(apiUrl);
 
       if (!result.data) {
