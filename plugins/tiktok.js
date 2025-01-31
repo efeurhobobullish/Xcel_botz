@@ -66,7 +66,7 @@ smd(
         );
       }
 
-      const apiUrl = `https://api.nexoracle.com/downloader/tiktok-nowm?apikey=MepwBcqIM0jYN0okD&url=${encodeURIComponent(text)}`;
+      const apiUrl = `https://api.nexoracle.com/downloader/tiktok-nowm?apikey=free_key@maher_apis&url=${encodeURIComponent(text)}`;
       const result = await axios.get(apiUrl);
 
       if (!result.data) {
