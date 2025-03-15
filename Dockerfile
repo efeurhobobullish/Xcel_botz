@@ -1,7 +1,7 @@
-FROM quay.io/sampandey001/secktor  
+FROM quay.io/sampandey001/secktor
 
-WORKDIR /root/STAR-KING0  
+WORKDIR /root/STAR-KING0
 
-RUN npm install --no-audit --no-fund  
+RUN rm -rf node_modules package-lock.json && npm install --force --no-audit --no-fund
 
 CMD ["npm", "start"]
