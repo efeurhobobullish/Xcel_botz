@@ -1,16 +1,7 @@
-FROM quay.io/sampandey001/secktor
-
-RUN git clone https://github.com/Excelsama/BOT-X.git /root/STAR-KING0
-
-# Clear npm cache and remove node_modules directories
-RUN npm cache clean --force
-RUN rm -rf /root/STAR-KING0/node_modules
-
-# Install dependencies
-WORKDIR /root/STAR-KING0
+FROM quay.io/maherzubair/sigma-md:beta
+RUN git clone https://github.com/Xcelsama/Xcel_botz/root/Xcel_botz
+WORKDIR /root/Xcel_botz/
+RUN npm install npm@latest
 RUN npm install
-
-# Add additional Steps To Run...
-EXPOSE 3000
-CMD ["npm","start" ]
-# IF YOU ARE MODIFYING THIS BOT DONT CHANGE THIS  RUN rm -rf /root/STAR-KING0/node_modules
+EXPOSE 8000
+CMD ["npm", "start"]
