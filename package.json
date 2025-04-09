@@ -1,4 +1,4 @@
- {
+{
   "name": "BOT-X",
   "version": "2.0.0",
   "description": "A BOT",
@@ -8,7 +8,8 @@
     "run": "pm2 start . --deep-monitoring --attach --name BOT-X || node .",
     "alya": "pm2 start . --deep-monitoring --attach --name BOT-X || node .",
     "start": "pm2 start . --attach --name BOT-X",
-    "stop": "pm2 stop BOT-X"
+    "stop": "pm2 stop BOT-X",
+    "heroku-postbuild": "npm install --force"
   },
   "author": "",
   "license": "proprietary license",
@@ -17,17 +18,17 @@
     "@hapi/boom": "^9.1.4",
     "baileys": "6.7.16",
     "acrcloud": "^1.4.0",
-    "anime-character-random": "latest",
+    "anime-character-random": "^1.0.0",
     "aptoide-scraper": "^1.0.1",
     "async-g-i-s": "^1.4.0",
     "axios": "^0.24.0",
     "canvas": "^2.11.2",
     "cheerio": "^1.0.0-rc.10",
     "child_process": "^1.0.2",
-    "crypto-js": "latest",
+    "crypto-js": "^4.1.1",
     "discord-mongoose-economy": "^1.2.0",
     "discord-xp": "^1.1.16",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "ffmpeg": "^0.0.4",
     "file-type": "^16.5.3",
@@ -37,30 +38,30 @@
     "google-it": "^1.6.4",
     "sequelize": "^6.23.0",
     "google-tts-api": "^2.0.2",
-    "heroku-client": "3.1.0",
+    "heroku-client": "^3.1.0",
     "human-readable": "^0.2.1",
     "jimp": "^0.16.1",
     "jsdom": "^16.4.0",
-    "koyeb-api-client": "latest",
+    "koyeb-api-client": "^2.0.0",
     "link-preview-js": "^3.0.0",
     "moment-timezone": "^0.5.34",
     "mongoose": "^6.2.1",
     "mumaker": "^2.0.0",
     "node-cron": "^3.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "node-webpmux": "^3.1.0",
-    "pastebin-js": "latest",
+    "pastebin-js": "^3.0.0",
     "path": "^0.12.7",
     "pg": "^8.11.3",
     "pm2": "^5.2.0",
-    "qrcode": "latest",
-    "secktor-pack": "latest",
+    "qrcode": "^3.2.0",
+    "secktor-pack": "^2.0.0",
     "simple-git": "^3.15.1",
     "translatte": "^3.0.1",
     "util": "^0.12.4",
     "wa-sticker-formatter": "^4.3.2",
     "youtubei.js": "^7.0.0",
-    "ytdl-core": "github:franceking1/flash-dls",
+    "ytdl-core": "^4.11.3",
     "ytdl-secktor": "^0.0.1-development"
   },
   "directories": {
@@ -77,5 +78,9 @@
   "bugs": {
     "url": "https://github.com/Excelsama/BOT-X/issues"
   },
-  "homepage": "https://github.com/Excelsama/BOT-X#readme"
- }
+  "homepage": "https://github.com/Excelsama/BOT-X#readme",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  }
+}
