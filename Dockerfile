@@ -1,7 +1,7 @@
-FROM quay.io/sampandey001/secktor
-RUN git clone https://github.com/SamPandey001/Secktor-Md /root/SamPandey001
-WORKDIR /root/SamPandey001/
-RUN npm install npm@latest
-RUN yarn install --network-concurrency 1
-EXPOSE 8000
+FROM node:lts-buster
+WORKDIR /app
+COPY package*.json ./
+RUN npm install && npm install -g qrcode-terminal pm2
+COPY . .
+EXPOSE 3000
 CMD ["npm", "start"]
