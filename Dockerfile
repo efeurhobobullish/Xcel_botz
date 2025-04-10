@@ -15,7 +15,6 @@ RUN npm install -g npm@8
 
 # Clear corrupted cache and install deps
 RUN rm -rf /root/.npm && npm cache clean --force
-RUN npm install --legacy-peer-deps
 RUN npm install -g qrcode-terminal pm2
 
 COPY . .
