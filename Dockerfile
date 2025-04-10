@@ -1,6 +1,6 @@
 FROM node:18-buster
 
-# Install canvas dependencies
+# Install system dependencies for canvas
 RUN apt-get update && apt-get install -y \
     build-essential \
     libcairo2-dev \
@@ -10,10 +10,13 @@ RUN apt-get update && apt-get install -y \
     librsvg2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Clear NPM cache, install dependencies
-RUN npm cache clean --force && \
-    npm install --legacy-peer-deps && \
-    npm install -g qrcode-terminal pm2
+# Downgrade npm to avoid known bugs
+RUN npm install -g npm@8
+
+# Clear corrupted cache and install deps
+RUN rm -rf /root/.npm && npm cache clean --force
+RUN npm install --legacy-peer-deps
+RUN npm install -g qrcode-terminal pm2
 
 COPY . .
 
