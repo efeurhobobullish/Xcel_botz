@@ -13,19 +13,15 @@ RUN apt-get update && apt-get install -y \
 # Downgrade npm to avoid known bugs
 RUN npm install -g npm@8
 
-# Clear corrupted npm cache and install dependencies
+# Clear corrupted cache and install deps
 RUN rm -rf /root/.npm && npm cache clean --force
 
-# Ensure dependencies are installed (including fs-extra)
+# Install fs-extra and other dependencies
 COPY package*.json ./
 RUN npm install
 
-# Install global dependencies
 RUN npm install -g qrcode-terminal pm2
 
-# Copy the rest of the application files
 COPY . .
-
 EXPOSE 3000  
-
 CMD ["npm", "start"]
