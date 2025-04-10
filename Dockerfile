@@ -1,17 +1,19 @@
-FROM node:lts-buster
+FROM node:18-buster
 
-# Install dependencies for canvas
+# Install canvas dependencies
 RUN apt-get update && apt-get install -y \
-  build-essential \
-  libcairo2-dev \
-  libpango1.0-dev \
-  libjpeg-dev \
-  libgif-dev \
-  librsvg2-dev \
-  && rm -rf /var/lib/apt/lists/*
+    build-essential \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libjpeg-dev \
+    libgif-dev \
+    librsvg2-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Use legacy peer deps to avoid conflicts
-RUN npm install --legacy-peer-deps && npm install -g qrcode-terminal pm2
+# Clear NPM cache, install dependencies
+RUN npm cache clean --force && \
+    npm install --legacy-peer-deps && \
+    npm install -g qrcode-terminal pm2
 
 COPY . .
 
