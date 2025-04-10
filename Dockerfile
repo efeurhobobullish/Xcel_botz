@@ -18,5 +18,5 @@ RUN rm -rf /root/.npm && npm cache clean --force
 RUN npm install -g qrcode-terminal pm2
 
 COPY . .
-
-CMD ["pm2-runtime", "start", "ecosystem.config.js"]
+EXPOSE 3000  
+CMD ["npm", "start"]
